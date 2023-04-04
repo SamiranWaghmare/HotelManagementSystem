@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Dashboard extends JFrame implements ActionListener{
-    JMenuItem rooms,employee,drivers;
+    JMenuItem rooms,employee,drivers,reception;
     
     Dashboard(){
         
@@ -47,7 +47,7 @@ public class Dashboard extends JFrame implements ActionListener{
      hotel.setForeground(Color.red);
      mb.add(hotel);
      
-     JMenuItem reception = new JMenuItem("RECEPTION");
+     reception = new JMenuItem("RECEPTION");
      reception.addActionListener(this);
      hotel.add(reception);
      
@@ -83,6 +83,9 @@ public class Dashboard extends JFrame implements ActionListener{
           new AddEmployee();
       else if(ae.getSource() == drivers)
           new AddDrivers();
+      else if (ae.getSource() == reception)
+          new AddReception();
+          
       
       
   }
