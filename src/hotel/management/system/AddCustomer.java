@@ -2,12 +2,16 @@ package hotel.management.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 
 
 public class AddCustomer extends JFrame {
     JComboBox comboId; 
     JTextField tfNumber,tfName,tfCountry;
     JRadioButton genderMale,genderFemale;
+    Choice croom;
+    JButton add,back;
     
     AddCustomer(){
         setLayout(null);
@@ -32,7 +36,7 @@ public class AddCustomer extends JFrame {
         comboId.setBounds(200,80,150,25);
         add(comboId);
         
-        JLabel lblNumber = new JLabel(" NUMBER");
+        JLabel lblNumber = new JLabel(" Number");
         lblNumber.setBounds(35,120,100,30);
         lblNumber.setFont(new Font("Raleway",Font.PLAIN,20));
         add(lblNumber);
@@ -42,7 +46,7 @@ public class AddCustomer extends JFrame {
         tfNumber.setBackground(Color.WHITE);
         add(tfNumber);
         
-        JLabel lblName = new JLabel("NAME");
+        JLabel lblName = new JLabel("Name");
         lblName.setBounds(35,160,100,30);
         lblName.setFont(new Font("Raleway",Font.PLAIN,20));
         add(lblName);
@@ -67,7 +71,7 @@ public class AddCustomer extends JFrame {
         genderFemale.setBackground(Color.WHITE);
         add(genderFemale);
         
-        JLabel lblCountry = new JLabel("COUNTRY");
+        JLabel lblCountry = new JLabel("Country");
         lblCountry.setBounds(35,240,100,30);
         lblCountry.setFont(new Font("Raleway",Font.PLAIN,20));
         add(lblCountry);
@@ -76,6 +80,63 @@ public class AddCustomer extends JFrame {
         tfCountry.setBounds(200,240,150,25);
         tfCountry.setBackground(Color.WHITE);
         add(tfCountry);
+        
+        JLabel lblroom = new JLabel("Room Number");
+        lblroom.setBounds(35,280,160,30);
+        lblroom.setFont(new Font("Raleway",Font.PLAIN,20));
+        add(lblroom);
+        
+        croom = new Choice();
+        croom.setBounds(200,280,150,25);
+        add(croom);
+        
+         
+        try {
+            Conn c = new Conn();
+            String query = "select * from rooms";
+            ResultSet rs = c.s.executeQuery(query);
+            
+            while(rs.next()){
+                croom.add(rs.getString(1));
+            }
+            c.s.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            
+        }
+        
+        JLabel lblTime = new JLabel("Checkin Time");
+        lblTime.setBounds(35,320,160,30);
+        lblTime.setFont(new Font("Raleway",Font.PLAIN,20));
+        add(lblTime);
+        
+      
+        java.util.Date date = new java.util.Date();
+        
+        JLabel checkInTime = new JLabel("" + date);
+        checkInTime.setBounds(200,320,160,30);
+        checkInTime.setFont(new Font("Raleway",Font.PLAIN, 15));
+        add(checkInTime);
+        
+        add = new JButton("ADD");
+        add.setBounds(35,380,150,40);
+        add.setForeground(Color.WHITE);
+        add.setBackground(Color.BLACK);
+        add(add);
+        
+        back = new JButton("BACK");
+        back.setBounds(200,380,150,40);
+        back.setForeground(Color.WHITE);
+        back.setBackground(Color.BLACK);
+        add(back);
+        
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/fifth.png"));
+        Image i2 = i1.getImage().getScaledInstance(300, 400, Image.SCALE_DEFAULT);
+        i1 = new ImageIcon(i2);
+        JLabel image = new JLabel(i1);
+        image.setBounds(400,50,300,400);
+        add(image);    
+        
         
         
         setVisible(true);
