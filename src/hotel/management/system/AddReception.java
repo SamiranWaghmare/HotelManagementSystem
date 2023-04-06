@@ -2,13 +2,16 @@
 package hotel.management.system;
 
 import static java.awt.Color.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class AddReception extends JFrame{
+public class AddReception extends JFrame implements ActionListener{
+    JButton newCustomerForm;
     
     AddReception(){
         setLayout(null);
@@ -16,10 +19,11 @@ public class AddReception extends JFrame{
         setBounds(350,120,900,680);
         
         //setting out buttons
-        JButton newCustomerForm = new JButton("New Customer Form");
+        newCustomerForm = new JButton("New Customer Form");
         newCustomerForm.setBackground(BLACK);
         newCustomerForm.setForeground(WHITE);
         newCustomerForm.setBounds(10,30,220,30);
+        newCustomerForm.addActionListener(this);
         add(newCustomerForm);
         
         JButton rooms = new JButton("Rooms");
@@ -97,6 +101,13 @@ public class AddReception extends JFrame{
         setVisible(true);
     }
     
+    public void actionPerformed(ActionEvent ae){
+        if(ae.getSource() == newCustomerForm ){
+            setVisible(false);
+            new AddCustomer();
+        }
+        
+    } 
     
     public static void main(String args[]){
         new AddReception();
