@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 
 public class AddReception extends JFrame implements ActionListener{
-    JButton newCustomerForm;
+    JButton newCustomerForm,rooms,department;
     
     AddReception(){
         setLayout(null);
@@ -26,17 +26,19 @@ public class AddReception extends JFrame implements ActionListener{
         newCustomerForm.addActionListener(this);
         add(newCustomerForm);
         
-        JButton rooms = new JButton("Rooms");
+        rooms = new JButton("Rooms");
         rooms.setBackground(BLACK);
         rooms.setForeground(WHITE);
         rooms.setBounds(10,80,220,30);
+        rooms.addActionListener(this);
         add(rooms);
         
-        JButton deperatment = new JButton("Department");
-        deperatment.setBackground(BLACK);
-        deperatment.setForeground(WHITE);
-        deperatment.setBounds(10,130,220,30);
-        add(deperatment);
+        department = new JButton("Department");
+        department.setBackground(BLACK);
+        department.setForeground(WHITE);
+        department.setBounds(10,130,220,30);
+        department.addActionListener(this);
+        add(department);
         
         JButton allEmployees = new JButton("All Employees");
         allEmployees.setBackground(BLACK);
@@ -105,6 +107,12 @@ public class AddReception extends JFrame implements ActionListener{
         if(ae.getSource() == newCustomerForm ){
             setVisible(false);
             new AddCustomer();
+        }else if(ae.getSource() == rooms){
+            setVisible(false);
+            new Rooms();
+        }else if(ae.getSource() == department){
+            setVisible(false);
+            new Departments();
         }
         
     } 
