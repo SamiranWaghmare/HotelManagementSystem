@@ -174,6 +174,7 @@ public class AddCustomer extends JFrame implements ActionListener {
                     gender = "male";
                 else if(genderFemale.isSelected())
                     gender = "female";
+                
                 String roomnumber = croom.getSelectedItem();
                 String checkin = checkInTime.getText();
                 String deposit = tfDeposit.getText();

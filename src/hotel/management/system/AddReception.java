@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 
 public class AddReception extends JFrame implements ActionListener{
-    JButton newCustomerForm,rooms,department;
+    JButton newCustomerForm,rooms,department,allEmployees,managerInfo,customerInfo;
     
     AddReception(){
         setLayout(null);
@@ -40,22 +40,25 @@ public class AddReception extends JFrame implements ActionListener{
         department.addActionListener(this);
         add(department);
         
-        JButton allEmployees = new JButton("All Employees");
+        allEmployees = new JButton("All Employees");
         allEmployees.setBackground(BLACK);
         allEmployees.setForeground(WHITE);
         allEmployees.setBounds(10,180,220,30);
+        allEmployees.addActionListener(this);
         add(allEmployees);
         
-        JButton customerInfo = new JButton("Customer Info");
+        customerInfo = new JButton("Customer Info");
         customerInfo.setBackground(BLACK);
         customerInfo.setForeground(WHITE);
         customerInfo.setBounds(10,230,220,30);
+        customerInfo.addActionListener(this);
         add(customerInfo);
         
-         JButton managerInfo = new JButton("Manager Info");
+        managerInfo = new JButton("Manager Info");
         managerInfo.setBackground(BLACK);
         managerInfo.setForeground(WHITE);
         managerInfo.setBounds(10,280,220,30);
+        managerInfo.addActionListener(this);
         add(managerInfo);
         
         JButton checkOut = new JButton("Check Out");
@@ -103,19 +106,21 @@ public class AddReception extends JFrame implements ActionListener{
         setVisible(true);
     }
     
-    public void actionPerformed(ActionEvent ae){
-        if(ae.getSource() == newCustomerForm ){
-            setVisible(false);
-            new AddCustomer();
-        }else if(ae.getSource() == rooms){
-            setVisible(false);
-            new Rooms();
-        }else if(ae.getSource() == department){
-            setVisible(false);
-            new Departments();
-        }
-        
-    } 
+    public void actionPerformed(ActionEvent ae) {
+    setVisible(false);
+
+    switch(ae.getActionCommand()) {
+        case "New Customer Form": new AddCustomer(); break;    
+        case "Rooms": new Rooms(); break;
+        case "Department": new Departments(); break;
+        case "All Employees": new Employees(); break;
+        case "Manager Info" : new Manager(); break;
+        case "Customer Info" : new Customers(); break;
+        default:
+            break;
+    }
+}
+
     
     public static void main(String args[]){
         new AddReception();
