@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import java.sql.*;
 import javax.swing.JButton;
 import net.proteanit.sql.*;
 

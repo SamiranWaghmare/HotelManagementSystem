@@ -89,6 +89,7 @@ public class AddReception extends JFrame implements ActionListener{
         searchRoom.setBackground(BLACK);
         searchRoom.setForeground(WHITE);
         searchRoom.setBounds(10,530,220,30);
+        searchRoom.addActionListener(this);
         add(searchRoom);
         
          JButton logout = new JButton("Logout");
@@ -116,6 +117,7 @@ public class AddReception extends JFrame implements ActionListener{
         case "All Employees": new Employees(); break;
         case "Manager Info" : new Manager(); break;
         case "Customer Info" : new Customers(); break;
+        case "Search Room" : new SearchRooms(); break;
         default:
             break;
     }
