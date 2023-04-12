@@ -71,6 +71,7 @@ public class AddReception extends JFrame implements ActionListener{
         updateStatus.setBackground(BLACK);
         updateStatus.setForeground(WHITE);
         updateStatus.setBounds(10,380,220,30);
+        updateStatus.addActionListener(this);
         add(updateStatus);
         
         JButton updateRoomStatus = new JButton("Update Room Status");
@@ -118,6 +119,7 @@ public class AddReception extends JFrame implements ActionListener{
         case "Manager Info" : new Manager(); break;
         case "Customer Info" : new Customers(); break;
         case "Search Room" : new SearchRooms(); break;
+        case "Update Status" : new UpdateCheck();break;
         default:
             break;
     }
