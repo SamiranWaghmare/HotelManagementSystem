@@ -18,7 +18,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class AddDrivers extends JFrame implements ActionListener{
-    JTextField txtname,txtage, txtcompany , txtmodel ,txtlocation,txtprice;
+    JTextField txtname,txtage, txtcompany , txtmodel ,txtlocation;
     JComboBox jcAvailable;
     JRadioButton rbMale, rbFemale;
     JButton addDriverButton;

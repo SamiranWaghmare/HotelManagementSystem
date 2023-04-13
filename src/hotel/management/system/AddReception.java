@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 
 public class AddReception extends JFrame implements ActionListener{
-    JButton newCustomerForm,rooms,department,allEmployees,managerInfo,customerInfo,updateStatus,updateRoomStatus;
+    JButton newCustomerForm,rooms,department,allEmployees,managerInfo,customerInfo,updateStatus,updateRoomStatus,pickupService;
     
     AddReception(){
         setLayout(null);
@@ -81,10 +81,11 @@ public class AddReception extends JFrame implements ActionListener{
         updateRoomStatus.addActionListener(this);
         add(updateRoomStatus);
         
-         JButton pickupService = new JButton("Pickup Service");
+        pickupService = new JButton("Pickup Service");
         pickupService.setBackground(BLACK);
         pickupService.setForeground(WHITE);
         pickupService.setBounds(10,480,220,30);
+        pickupService.addActionListener(this);
         add(pickupService);
         
         JButton searchRoom = new JButton("Search Room");
@@ -122,6 +123,7 @@ public class AddReception extends JFrame implements ActionListener{
         case "Search Room" : new SearchRooms(); break;
         case "Update Status" : new UpdateCheck(); break;
         case "Update Room Status" : new UpdateRoom(); break;
+        case"Pickup Service" : new Pickup(); break;
         default:
             break;
     }

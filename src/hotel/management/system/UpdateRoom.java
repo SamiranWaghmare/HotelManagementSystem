@@ -63,7 +63,7 @@ public class UpdateRoom extends JFrame implements ActionListener{
         tfAvailable.setBounds(200,180,150,25);
         add(tfAvailable);
         
-        JLabel lblStatus = new JLabel("Cleaning ");
+        JLabel lblStatus = new JLabel("Cleaning Status");
         lblStatus.setBounds(30,230,100,20);
         add(lblStatus);
         
